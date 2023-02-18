@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Alpaca.Tool.WebAPI.First.Migrations
 {
-    public partial class member : Migration
+    public partial class M_Member : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,7 @@ namespace Alpaca.Tool.WebAPI.First.Migrations
                 name: "M_Member",
                 columns: table => new
                 {
-                    MemberID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MemberID = table.Column<int>(type: "int", nullable: false),
                     MemberName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MemberNameKana = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     MemberNameEng = table.Column<string>(type: "nvarchar(max)", nullable: false),

@@ -25,10 +25,7 @@ namespace Alpaca.Tool.WebAPI.First.Migrations
             modelBuilder.Entity("Alpaca.Tool.WebAPI.First.Models.M_Member", b =>
                 {
                     b.Property<int>("MemberID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MemberID"), 1L, 1);
 
                     b.Property<short?>("Age")
                         .HasColumnType("smallint");

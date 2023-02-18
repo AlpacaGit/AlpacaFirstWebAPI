@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alpaca.Tool.WebAPI.First.Migrations
 {
     [DbContext(typeof(AlpacaToolWebAPIFirstContext))]
-    [Migration("20230218010741_member")]
-    partial class member
+    [Migration("20230218022452_M_Member")]
+    partial class M_Member
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,10 +27,7 @@ namespace Alpaca.Tool.WebAPI.First.Migrations
             modelBuilder.Entity("Alpaca.Tool.WebAPI.First.Models.M_Member", b =>
                 {
                     b.Property<int>("MemberID")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MemberID"), 1L, 1);
 
                     b.Property<short?>("Age")
                         .HasColumnType("smallint");
