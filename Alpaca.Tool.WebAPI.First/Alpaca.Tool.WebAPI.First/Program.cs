@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Alpaca.Tool.WebAPI.First.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<AlpacaToolWebAPIFirstContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AlpacaToolWebAPIFirstContext") ?? throw new InvalidOperationException("Connection string 'AlpacaToolWebAPIFirstContext' not found.")));
 
 // Add services to the container.
 
