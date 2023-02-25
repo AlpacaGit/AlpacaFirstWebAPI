@@ -1,19 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Alpaca.Tool.WebAPI.First.Models
 {
     /// <summary>
     /// メンバーマスタ
     /// </summary>
-    public class M_Member
+    public record M_Member
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MemberID { get; set; }
-        public string MemberName { get; set; }
-        public string MemberNameKana { get; set; }
-        public string MemberNameEng { get; set; }
+        public string MemberName { get; set; } = string.Empty;
+        public string MemberNameKana { get; set; } = string.Empty;
+        public string MemberNameEng { get; set; } = string.Empty;
         public int? ImageColorID { get; set; }
         public string? Grade { get; set; }
         public short? Age { get; set; }
@@ -25,7 +23,7 @@ namespace Alpaca.Tool.WebAPI.First.Models
         public int? Hip { get; set; }
         public string? Detail { get; set; }
         public DateTime? LastUpdateDate { get; set; }
-        public bool Invalid_FLG { get; set; }
+        public bool Invalid_FLG { get; set; } = false;
 
     }
 }

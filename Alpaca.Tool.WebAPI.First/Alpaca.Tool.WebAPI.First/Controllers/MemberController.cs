@@ -16,9 +16,35 @@ namespace Alpaca.Tool.WebAPI.First.Controllers
 
         // GET: api/<MemberController>
         [HttpGet]
-        public IEnumerable<Models.M_Member> Get()
+        public IEnumerable<MemberInfo> Get()
         {
-            return _context.M_Member.ToArray<Models.M_Member>();
+            var memberList = _context.M_Member.ToArray<Models.M_Member>();
+            List<MemberInfo> memberInfoList = new List<MemberInfo>();
+            foreach (Models.M_Member member in memberList)
+            {
+                MemberInfo aMember 
+                    = new(member.MemberID, member.MemberName,member.MemberNameKana,member.MemberNameEng,
+                    member.ImageColorID,
+                    member.Grade,member.Age,member.BirthDay,member.Height,member.BloodType);
+                memberInfoList.Add(aMember);
+            }
+            return memberInfoList;
+        }
+
+        public record MemberInfo(int MemberID, string MemberName, string MemberNameKana = "", string MemberNameEng = ""
+                , int? ImageColorID = null
+                , string? Grade = null, short? Age = null, string? BirthDay = null, int? Height = null, string? BloodType = null)
+        {
+            public int MemberID { get; } = MemberID;
+            public string MemberName { get; } = MemberName;
+            public string MemberNameKana { get; } = MemberNameKana;
+            public string MemberNameEng { get; } = MemberNameEng;
+            public int? ImageColorID { get; } = ImageColorID;
+            public string? Grade { get; } = Grade;
+            public short? Age { get; } = Age;
+            public string? BirthDay { get; } = BirthDay;
+            public int? Height { get; } = Height;
+            public string? BloodType { get; } = BloodType;
         }
 
         // GET api/<MemberController>/5
